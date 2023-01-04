@@ -1,0 +1,295 @@
+@import "./abstracts/reset";
+@import "./abstracts/functions";
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+@import "./base/base";
+@import "./base/fonts";
+@import "./components/header", "./components/button", "./components/card", "./components/footer";
+
+body {
+    position: relative;
+
+    &.fixed {
+        // position: fixed;
+        overflow: hidden;
+    }
+}
+
+.wrapper {
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 5%;
+}
+section:not(.easybank) {
+    background-color: $very-light-gray;
+}
+.hide {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+    animation: fadeIn 0.6s ease-in-out 0s 1;
+}
+.intro {
+    background: url("/images/bg-intro-mobile.svg");
+    //background-attachment: fixed;
+    //background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    &__header {
+        height: 400px;
+        position: relative;
+        .img-mockup {
+            position: absolute;
+            top: -2.5rem;
+            left: 50%;
+            transform: translate(-50%);
+            height: 400px;
+            width: auto;
+        }
+    }
+
+    &__heading {
+        // padding: 5%;
+        text-align: center;
+        h1 {
+            font-size: $h2-font-size;
+        }
+    }
+}
+.overlay {
+    @include pos-absolute(0, 0, 0, 0);
+    overflow: hidden;
+    @include visibility-hiddden($hidden, $opacity-0);
+    background: rgb(45, 49, 77);
+    background: linear-gradient(
+        180deg,
+        rgba(45, 49, 77, 0.7155172413793103) 25%,
+        rgba(255, 255, 255, 0.11853448275862066) 100%,
+        rgba(255, 255, 255, 0.3655913978494624) 123%
+    );
+    z-index: 1;
+    &.show {
+        @include visibility-hiddden($visible, $opacity-1);
+    }
+}
+.easybank {
+    text-align: center;
+    background: $light-grayish-blue;
+
+    &__why-choose {
+        padding: $p-3 0;
+    }
+    .card {
+        text-align: center;
+        background: transparent;
+
+        &__title {
+            h2 {
+                font-size: font-size(fs-24);
+            }
+        }
+    }
+}
+
+.articles {
+    h2 {
+        text-align: center;
+        padding: $p-1_5 0;
+    }
+
+    .card {
+        box-shadow: 0px 1px 17px -3px rgba(0, 0, 0, 0.27);
+        -webkit-box-shadow: 0px 1px 17px -3px rgba(0, 0, 0, 0.27);
+        -moz-box-shadow: 0px 1px 17px -3px rgba(0, 0, 0, 0.27);
+        min-width: 300px;
+        &:hover {
+            transform: scale(1.05);
+            img {
+                transform: scale(1.2);
+            }
+        }
+        &__img {
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            margin-bottom: $p-0;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+
+        &__title {
+            a {
+                &:hover {
+                    h3 {
+                        color: $bright-cyan;
+                    }
+                }
+            }
+            h3 {
+                margin-bottom: $p-1;
+            }
+        }
+        &__desc {
+            p {
+                font-size: $h6-font-size;
+            }
+        }
+    }
+}
+
+@include breakpoint(xsl, min) {
+    .intro {
+        background-position: top -250px right;
+    }
+}
+@include breakpoint(sm, min) {
+    .overlay {
+        display: none;
+    }
+    .intro {
+        background-position: top -430px right;
+    }
+
+    .easybank {
+        &__features {
+            .features {
+                @include display-flex(center, space-evenly);
+
+                flex-wrap: wrap;
+                .card {
+                    max-width: 300px;
+                    text-align: left;
+                    &__img {
+                        img {
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .articles {
+        &__cards {
+            @include display-flex(center, space-evenly);
+            flex-wrap: wrap;
+            transition: flex-wrap ease-in-out 0.3s;
+            .card {
+                height: 30rem;
+                max-width: 300px;
+
+                &__img {
+                    height: 200px;
+                    img {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+@include breakpoint(md, min) {
+    .intro {
+        background: url("/images/bg-intro-desktop.svg");
+        background-position: top -330px right -700px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        &__container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas: "heading header";
+            padding: 5% 0;
+        }
+        &__header {
+            height: 100%;
+            grid-area: header;
+            // margin-left: calc(50% - 50vw);
+            // margin-right: calc(50% - 50vw);
+            .img-mockup {
+                height: auto;
+                margin: 0;
+                top: -13rem;
+                left: 80%;
+            }
+        }
+        &__heading {
+            grid-area: heading;
+            text-align: left;
+            h1 {
+                font-size: font-size(fs-54);
+            }
+        }
+    }
+    .easybank {
+        &__why-choose {
+            text-align: left;
+            width: 50%;
+        }
+        &__features {
+            .features {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+                place-items: center;
+                gap: 20px 40px;
+            }
+        }
+    }
+    .articles {
+        h2 {
+            text-align: left;
+        }
+        &__cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+            place-items: center;
+            gap: 20px 40px;
+        }
+    }
+}
+
+@include breakpoint(lg, min) {
+    .intro {
+        &__container {
+            display: grid;
+            grid-template-columns: 0.5fr 1fr;
+            grid-template-areas: "heading header";
+            padding: 5% 0;
+        }
+    }
+}
+@keyframes fadeIn {
+    from {
+        transform: translateY(50%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+@keyframes bounce {
+    0% {
+        opacity: 0;
+        transform: translateY(50%);
+    }
+    10% {
+        transform: translateY(0);
+    }
+    30% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

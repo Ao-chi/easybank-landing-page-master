@@ -1,0 +1,23 @@
+button {
+    color: $white;
+    position: relative;
+    font-weight: font-weight(font-bold);
+    @include Public-sans-font;
+    border: 1px solid $bright-cyan;
+    border-radius: $p-1_5;
+    padding: 0.675rem 2.5rem;
+    margin-bottom: $p-1;
+    background: $bright-cyan;
+    background: linear-gradient(90deg, rgba(52, 207, 105, 1) 26%, rgba(39, 188, 201, 1) 78%);
+    white-space: nowrap;
+    transition: opacity 0.3s;
+    cursor: pointer;
+
+    &:hover {
+        color: $white;
+        opacity: 0.6;
+    }
+}
+
+@keyframes fadeIn {
+}

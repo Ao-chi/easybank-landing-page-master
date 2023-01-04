@@ -1,0 +1,23 @@
+.card {
+    border-radius: 10px;
+    //max-width: 300px;
+    // width: 300px;
+    background: $white;
+    margin-bottom: $p-1_5;
+    overflow: hidden;
+
+    &__img {
+        margin-bottom: $p-1-5;
+        img {
+            margin: 0 auto;
+        }
+    }
+    &__body {
+        padding: $p-1_5;
+
+        .author {
+            font-size: font-size(fs-15);
+            margin-bottom: $p-0_5;
+        }
+    }
+}

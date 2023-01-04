@@ -1,0 +1,16 @@
+@import "./variables";
+
+// font-weights
+@function font-weight($f-weight) {
+    @return map-get($font-weights, $f-weight);
+}
+
+// font sizes
+@function font-size($f-size) {
+    @return map-get($font-sizes, $f-size);
+}
+
+// spacings
+@function spacing($space) {
+    @return map-get($spacing, $space);
+}

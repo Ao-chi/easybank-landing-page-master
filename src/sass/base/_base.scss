@@ -1,0 +1,57 @@
+html {
+    height: 100%;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100%;
+    overflow-x: hidden;
+    @include Public-sans-font;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    transition: ease-in-out 0.3s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    color: $dark-blue;
+    font-weight: font-weight(font-bold);
+    margin-bottom: $p-1-5;
+    line-height: 1.2;
+}
+
+p {
+    color: $grayish-blue;
+    font-size: font-size(fs-18);
+    font-weight: font-weight(font-normal);
+    margin-bottom: $p-1-5;
+    line-height: 1.5;
+}
+
+a {
+    color: $grayish-blue;
+    font-weight: font-weight(font-normal);
+    text-decoration: none;
+}
+
+h1 {
+    color: $dark-blue;
+    font-size: $h1-font-size;
+}
+
+h2 {
+    color: $black;
+    font-size: $h2-font-size;
+}
+
+.fa-brands {
+    color: $white;
+}

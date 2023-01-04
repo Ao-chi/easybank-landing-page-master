@@ -1,0 +1,82 @@
+//font family
+
+// colors
+//primary
+$black: hsl(0, 0%, 10%);
+$dark-blue: hsl(233, 26%, 24%);
+$lime-green: hsl(136, 65%, 51%);
+$bright-cyan: hsl(192, 70%, 51%);
+
+// neutral
+$white: hsl(0, 0%, 100%);
+$grayish-blue: hsl(233, 8%, 62%);
+$light-grayish-blue: hsl(220, 16%, 96%);
+$very-light-gray: hsl(0, 0%, 98%);
+
+// font weights
+$font-weights: (
+    font-normal: 300,
+    font-bold: 400,
+    font-bolder: 700,
+);
+
+// font sizes
+$font-sizes: (
+    fs-12: 12px,
+    fs-14: 14px,
+    fs-15: 15px,
+    fs-16: 1rem,
+    fs-18: 18px,
+    fs-20: 1.25rem,
+    fs-22: 22px,
+    fs-24: 24px,
+    fs-26: 26px,
+    fs-28: 1.75rem,
+    fs-32: 32px,
+    fs-36: 36px,
+    fs-40: 2.5rem,
+    fs-50: 3.125rem,
+    fs-54: 54px,
+    fs-60: 3.75rem,
+);
+
+//font sizes
+$h1-font-size: font-size(fs-50);
+$h2-font-size: font-size(fs-40);
+$h3-font-size: font-size(fs-32);
+$h4-font-size: font-size(fs-28);
+$h5-font-size: font-size(fs-20);
+$h6-font-size: 1rem;
+
+//spacers
+$spacer: 1rem;
+$spacing: (
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer,
+    4: $spacer * 1.5,
+    5: $spacer * 3,
+);
+
+$p-3: spacing(5);
+$p-1_5: spacing(4);
+$p-1: spacing(3);
+$p-0_5: spacing(2);
+$p-0: spacing(0);
+
+//breakpoints
+$breakpoints: (
+    xs: 375px,
+    xsl: 470px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1440px,
+);
+
+//visibility & opaicty
+$visible: visible;
+$hidden: hidden;
+$opacity-1: 1;
+$opacity-0: 0;

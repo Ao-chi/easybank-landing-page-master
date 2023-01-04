@@ -1,0 +1,123 @@
+.footer {
+    padding: 5%;
+    background: $dark-blue;
+
+    &__brand {
+        padding: $p-1-5;
+        margin-bottom: $p-0_5;
+        svg {
+            margin: 0 auto;
+        }
+    }
+
+    &__nav {
+        padding: $p-1-5;
+        .nav__list {
+            @include display-flex(center, center);
+            flex-direction: column;
+            padding: $p-0;
+
+            li {
+                margin-bottom: $p-1;
+                @include hover($lime-green);
+
+                .nav__items {
+                    color: $white;
+                }
+            }
+        }
+    }
+    &__invite {
+        @include display-flex(center, center);
+        flex-direction: column;
+    }
+
+    &__copyright {
+        color: $grayish-blue;
+    }
+}
+
+.socials {
+    @include display-flex(center, space-evenly);
+    margin: 0 auto;
+    width: 220px;
+    padding: 0;
+    &__links {
+        font-size: 24px;
+        @include hover($lime-green);
+        span {
+            transition: all 0.1s;
+        }
+    }
+}
+
+@include breakpoint(sm, min) {
+    .footer {
+        .wrapper {
+            @include display-flex(unset, flex-start);
+        }
+
+        &__left {
+            @include display-flex(flex-start, space-between);
+            flex-direction: column;
+        }
+
+        &__brand {
+            padding: $p-0;
+            margin-bottom: $p-0_5;
+            svg {
+                margin: $p-0;
+            }
+        }
+
+        &__nav {
+            padding: $p-0 $p-1-5;
+            @include display-flex(center, flex-start);
+
+            .nav__list {
+                @include display-flex(flex-start, center);
+                flex-wrap: nowrap;
+                white-space: nowrap;
+                flex-direction: column;
+                padding: $p-0;
+
+                li {
+                    margin-bottom: $p-1;
+                    @include hover($lime-green);
+
+                    .nav__items {
+                        color: $white;
+                    }
+                }
+            }
+        }
+
+        &__invite {
+            text-align: end;
+            margin-left: auto;
+            @include display-flex(flex-end, flex-start);
+        }
+    }
+
+    .socials {
+        @include display-flex(center, space-between);
+        padding-right: $p-3;
+        &__links {
+            font-size: 24px;
+            @include hover($lime-green);
+            span {
+                transition: all 0.1s;
+            }
+        }
+    }
+}
+
+@include breakpoint(md, min) {
+    .footer {
+        &__nav {
+            .nav__list {
+                padding: $p-0 $p-3;
+            }
+        }
+    }
+}
