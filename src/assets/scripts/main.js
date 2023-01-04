@@ -3,14 +3,15 @@ const navMenu = document.querySelector("#navMoblie");
 const overlay = document.querySelector(".overlay");
 const cards = document.querySelectorAll(".hide");
 const body1 = document.querySelector("body");
+const body2 = document.querySelector("html");
 
-const openNav = () => {
+const openNav = (event) => {
     navButton.classList.toggle("active");
     navMenu.classList.toggle("show");
     overlay.classList.toggle("show");
     body1.classList.toggle("fixed");
-    document.body.scrollTop = document.body.scrollTop;
-    console.log(document.body.scrollTop);
+    body2.style.overflowX = "visible";
+    event.stopPropagation();
 };
 
 navButton.addEventListener("click", openNav);
@@ -21,6 +22,7 @@ const clickOut = () => {
         navButton.classList.toggle("active");
         navMenu.classList.toggle("show");
         body1.classList.toggle("fixed");
+        body2.style.overflowX = "hidden";
     }
 };
 overlay.addEventListener("click", clickOut);
